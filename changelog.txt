@@ -1,12 +1,15 @@
-=== Grey Dragon Theme ===
-Grey Dragon Theme - a custom theme for Gallery 3
+=== G3 Grey Theme ===
+G3 Grey Theme - a custom theme for Gallery 3
 
-This theme was designed and built by Serguei Dosyukov, whose blog you will find
-at http://blog.dragonsoft.us/
+This theme is designed and built by David Yin, https://www.yinfor.com
+Copyright (C) 2023 David Yin
+
+Based on the Grey Dragon Theme, which was designed and built by Serguei Dosyukov,
+whose blog you will find at http://blog.dragonsoft.us/
 Copyright (C) 2009-2012 Serguei Dosyukov
 
-Tested up to: G3 3.0.3 build 55
-Minimum requirement: G3 3.0.2 build 49
+Tested up to: Gallery the Revival 3 3.1.5
+
 
 This program is free software; you can redistribute it and/or modify it under
 the terms of the GNU General Public License as published by the Free Software
@@ -22,6 +25,11 @@ along with this program; if not, write to the Free Software Foundation, Inc.,
 - RTL layout support
                             
 === Changelog ===
+Version 5.0.0
+- Remove the short open tags
+- Fix the related modules
+
+=== Before David Yin ===
 version 4.0.2
 - Incompatability fix for PHP5.4 and below causing crash and blank page. http://galleryproject.org/forum_theme_greydragon?page=48#comment-408923
 - Fix to allow thumbnail rotation update when operation is performed. http://galleryproject.org/forum_theme_greydragon?page=48#comment-408993

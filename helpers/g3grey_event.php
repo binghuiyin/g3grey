@@ -1,7 +1,11 @@
 <?php defined("SYSPATH") or die("No direct script access.");
 /**
- * Grey Dragon Theme - a custom theme for Gallery 3
- * This theme was designed and built by Serguei Dosyukov, whose blog you will find at http://blog.dragonsoft.us
+ * G3 Grey Theme - a custom theme for Gallery 3
+ * This theme is designed and built by David Yin, https://www.yinfor.com
+ * Copyright (C) 2023 David Yin
+ *
+ * Based on the Grey Dragon Theme, which was designed and built by Serguei Dosyukov,
+ * whose blog you will find at http://blog.dragonsoft.us/
  * Copyright (C) 2009-2011 Serguei Dosyukov
  *
  * This program is free software; you can redistribute it and/or modify it under the terms of the GNU General
