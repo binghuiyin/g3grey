@@ -16,12 +16,12 @@
  * the Free Software Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston, MA  02110-1301, USA.
  */
 ?>
-<?= $theme->sidebar_top() ?>
+<?php  echo $theme->sidebar_top() ?>
 <div class="g-toolbar"><h1>&nbsp;</h1></div>
-<? if ((!$user->guest) || (!$theme->sidebar_hideguest)):
+<?php   if ((!$user->guest) || (!$theme->sidebar_hideguest)):
      try { echo $theme->sidebar_blocks(); } catch (Exception $e) { } 
    else:
      echo "";
    endif;
 ?>
-<?= $theme->sidebar_bottom() ?>
+<?php  echo $theme->sidebar_bottom() ?>

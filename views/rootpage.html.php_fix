@@ -16,7 +16,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston, MA  02110-1301, USA.
  */
 ?>
-<? 
+<?php 
   $link_url = item::root()->url();
   if ($theme->allow_root_page):
     $link_url .= $theme->permalinks["enter"];
@@ -28,19 +28,19 @@
       $root_text = $item->description;
     endif;
     if ($root_text): 
-      ?><div id="g-rootpage-quote"><?= $theme->bb2html($root_text, 1); ?></div><?
+      ?><div id="g-rootpage-quote"><?php echo $theme->bb2html($root_text, 1); ?></div><?
     endif; 
   endif;
 ?>
-<div id="g-rootpage-roll"<?= ($root_text)? null : ' class="g-full"'; ?>>
-<object type="application/x-shockwave-flash" data="<?= url::file("modules/imageblockex/player/minislideshow.swf"); ?>" width="100%" height="100%">
-<param name="movie" value="<?= url::file("modules/imageblockex/player/minislideshow.swf"); ?>" />
-<param name="FlashVars" value="xmlUrl=<?= $theme->root_feed; ?>&amp;delay=<?= $theme->root_delay; ?>&amp;showControls=false&amp;altLink=<?= $link_url ?>&amp;showDropShadow=true&amp;useResizes=true&amp;useFull=true&amp;showLoader=false" />
+<div id="g-rootpage-roll"<?php echo ($root_text)? null : ' class="g-full"'; ?>>
+<object type="application/x-shockwave-flash" data="<?php echo url::file("modules/imageblockex/player/minislideshow.swf"); ?>" width="100%" height="100%">
+<param name="movie" value="<?php echo url::file("modules/imageblockex/player/minislideshow.swf"); ?>" />
+<param name="FlashVars" value="xmlUrl=<?php echo $theme->root_feed; ?>&amp;delay=<?php echo $theme->root_delay; ?>&amp;showControls=false&amp;altLink=<?php echo $link_url ?>&amp;showDropShadow=true&amp;useResizes=true&amp;useFull=true&amp;showLoader=false" />
 <param name="bgcolor" value="#1c242e" />
 <param name="wmode" value="transparent" />
 <param name="menu" value="false" />
 <param name="quality" value="high" />
 </object>
-<div id="g-rootpage-link" onclick="javascript:location='<?= $link_url ?>'" ></div>
-<span><a href="<?= $link_url ?>"><?= t("Click to Enter") ?></a></span>
+<div id="g-rootpage-link" onclick="javascript:location='<?php echo $link_url ?>'" ></div>
+<span><a href="<?php echo $link_url ?>"><?php echo t("Click to Enter") ?></a></span>
 </div>

@@ -16,7 +16,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston, MA  02110-1301, USA.
  */
 ?>
-<?
+<?php
 class exif_event_Core {
   static function item_created($item) {
     if (!$item->is_album()) {

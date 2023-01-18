@@ -16,14 +16,14 @@
  * the Free Software Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston, MA  02110-1301, USA.
  */
 ?>
-<? if ($anchor): ?>
-<a name="<?= $anchor ?>"></a>
-<? endif ?>
-<div id="<?= $css_id ?>" class="g-block">
-  <? if (isset($theme) and ($theme->is_blockheader_visible)): ?>
-  <h2><?= $title ?></h2>
-  <? endif ?>
+<?php if ($anchor): ?>
+<a name="<?php echo $anchor ?>"></a>
+<?php endif ?>
+<div id="<?php echo $css_id ?>" class="g-block">
+  <?php if (isset($theme) and ($theme->is_blockheader_visible)): ?>
+  <h2><?php echo $title ?></h2>
+  <?php endif ?>
   <div class="g-block-content">
-    <?= $content ?>
+    <?php echo $content ?>
   </div>
 </div>

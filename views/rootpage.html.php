@@ -16,7 +16,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston, MA  02110-1301, USA.
  */
 ?>
-<? 
+<?php 
   $link_url = item::root()->url();
   if ($theme->allow_root_page):            
     $link_url .= $theme->permalinks["enter"];
@@ -28,32 +28,32 @@
       $root_text = $item->description;
     endif;
     if ($root_text): 
-      ?><div id="g-rootpage-quote"><?= $theme->bb2html($root_text, 1); ?></div><?
+      ?><div id="g-rootpage-quote"><?php echo $theme->bb2html($root_text, 1); ?></div><?php
     endif; 
   endif;
 
   $slideshow_list = $theme->get_slideshow_list();
   $first = TRUE;
 ?>
-<div id="g-rootpage-roll"<?= ($root_text)? null : ' class="g-full"'; ?>>
-  <span><a href="<?= $link_url ?>"><?= t("Click to Enter") ?></a></span>
+<div id="g-rootpage-roll"<?php echo ($root_text)? null : ' class="g-full"'; ?>>
+  <span><a href="<?php echo $link_url ?>"><?php echo t("Click to Enter") ?></a></span>
   <div id="g-rootpage-slideshow">
-    <? foreach ($slideshow_list as $entry): ?>
-      <? $attr = $entry["@attributes"]; ?>
-    <div class="slider-item" style="width: <?= $attr['width']; ?>px; height: <?= $attr["height"]; ?>px; display: <?= ($first)? "block" : "none"; ?>; position: absolute; z-index: 10; opacity: <?= ($first)? "1" : "0"; ?>;">
-      <a href="<?= $link_url; ?>"><img width="<?= $attr["width"]; ?>" height="<?= $attr["height"]; ?>" alt="" src="<?= $attr["url"]; ?>" /></a>
+    <?php foreach ($slideshow_list as $entry): ?>
+      <?php $attr = $entry["@attributes"]; ?>
+    <div class="slider-item" style="width: <?php echo $attr['width']; ?>px; height: <?php echo $attr["height"]; ?>px; display: <?php echo ($first)? "block" : "none"; ?>; position: absolute; z-index: 10; opacity: <?php echo ($first)? "1" : "0"; ?>;">
+      <a href="<?php echo $link_url; ?>"><img width="<?php echo $attr["width"]; ?>" height="<?php echo $attr["height"]; ?>" alt="" src="<?php echo $attr["url"]; ?>" /></a>
     </div>
-      <? $first = FALSE; ?>
-    <? endforeach ?>
+      <?php $first = FALSE; ?>
+    <?php endforeach ?>
   </div>  
 </div>
-<? if (count($slideshow_list) > 0): ?>
+<?php if (count($slideshow_list) > 0): ?>
 <script type="text/javascript">
   $(document).ready(function() {
     $('#g-rootpage-slideshow').cycle({
-        fx: '<?= $theme->root_cyclemode; ?>'
-      , timeout: <?= $theme->root_delay * 1000; ?>
+        fx: '<?php echo $theme->root_cyclemode; ?>'
+      , timeout: <?php echo $theme->root_delay * 1000; ?>
     });
   });
 </script>
-<? endif; ?>
+<?php endif; ?>

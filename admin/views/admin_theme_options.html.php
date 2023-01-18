@@ -16,7 +16,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston, MA  02110-1301, USA.
  */
 ?>
-<?
+<?php
   $gd_shared_installed = (module::is_active("greydragon") && module::info("greydragon"));
   if ($gd_shared_installed):
     $view = new View("gd_admin_include.html");

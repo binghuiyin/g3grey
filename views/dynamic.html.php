@@ -16,23 +16,23 @@
  * the Free Software Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston, MA  02110-1301, USA.
  */
 ?>
-<? if (!isset($title)):
+<?php if (!isset($title)):
     $title = "";
    endif;
 ?>
 <div id="g-album-header">
   <div id="g-album-header-buttons">
-    <?= $theme->dynamic_top() ?>
+    <?php echo $theme->dynamic_top() ?>
   </div>
-  <h1><?= html::clean($title) ?></h1>
+  <h1><?php echo html::clean($title) ?></h1>
 </div>
-<?= $theme->add_paginator("top"); ?>
+<?php echo $theme->add_paginator("top"); ?>
 <div class="g-album-grid-container">
 <ul id="g-album-grid">
-  <? foreach ($children as $i => $child): ?>
-    <?= $theme->get_thumb_element($child) ?>
-  <? endforeach ?>
+  <?php foreach ($children as $i => $child): ?>
+    <?php echo $theme->get_thumb_element($child) ?>
+  <?php endforeach ?>
 </ul>
 </div>
-<?= $theme->dynamic_bottom() ?>
-<?= $theme->add_paginator("bottom"); ?>
+<?php echo $theme->dynamic_bottom() ?>
+<?php echo $theme->add_paginator("bottom"); ?>

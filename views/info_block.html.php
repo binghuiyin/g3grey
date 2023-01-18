@@ -16,14 +16,14 @@
  * the Free Software Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston, MA  02110-1301, USA.
  */
 ?>
-<? if (array_key_exists("description", $metadata)): ?>
-<?   $metadata["description"]["value"] = $theme->bb2html($metadata["description"]["value"], 1) ?>
-<? endif; ?>
+<?php if (array_key_exists("description", $metadata)): ?>
+<?php   $metadata["description"]["value"] = $theme->bb2html($metadata["description"]["value"], 1) ?>
+<?php endif; ?>
 
 <ul class="g-metadata">
-  <? foreach($metadata as $info): ?>
+  <?php foreach($metadata as $info): ?>
   <li>
-    <strong class="caption"><?= $info["label"] ?></strong> <?= $info["value"] ?>
+    <strong class="caption"><?php echo $info["label"] ?></strong> <?php echo $info["value"] ?>
   </li>
-  <? endforeach; ?>
+  <?php endforeach; ?>
 </ul>

@@ -16,7 +16,7 @@
  * the Free Software Foundation, Inc., 51 Franklin Street - Fifth Floor, Boston, MA  02110-1301, USA.
  */
 ?>
-<?
+<?php
 class greydragon_installer {
   static function install() {
     site_status::warning(t("Initial configuration for the theme may be required. Visit Admin\Appearance\Theme Options before continue."), "gd_init_configuration");

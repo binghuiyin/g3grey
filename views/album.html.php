@@ -17,19 +17,19 @@
  */
 ?>
 <div id="g-album-header">
-  <?= $theme->album_top() ?>
-  <h1><?= $theme->get_item_title($item, TRUE) ?></h1>
+  <?php echo $theme->album_top() ?>
+  <h1><?php echo $theme->get_item_title($item, TRUE) ?></h1>
 </div>
 
-<?= $theme->add_paginator("top"); ?>
+<?php echo $theme->add_paginator("top"); ?>
 
-<? if (($theme->album_descmode == "top") and ($item->description)): ?>
-  <div id="g-info"><div class="g-description"><?= $theme->bb2html(html::purify($item->description), 1); ?></div></div>
-<? endif; ?>
+<?php if (($theme->album_descmode == "top") and ($item->description)): ?>
+  <div id="g-info"><div class="g-description"><?php echo $theme->bb2html(html::purify($item->description), 1); ?></div></div>
+<?php endif; ?>
 
 <div class="g-album-grid-container">
 <ul id="g-album-grid">
-<?
+<?php
   if (count($children)):
     $siblings = $item->children();
     if (($theme->disablephotopage) && (count($siblings) > count($children))):
@@ -52,17 +52,17 @@
   else:
     if ($user->admin || access::can("add", $item)):
       $addurl = url::site("uploader/index/$item->id"); ?>
-      <li><?= t("There aren't any photos here yet! <a %attrs>Add some</a>.", array("attrs" => html::mark_clean("href=\"$addurl\" class=\"g-dialog-link\""))) ?></li>
-    <? else: ?>
-      <li><?= t("There aren't any photos here yet!") ?></li>
-    <? endif; ?>
-<? endif; ?>
+      <li><?php echo t("There aren't any photos here yet! <a %attrs>Add some</a>.", array("attrs" => html::mark_clean("href=\"$addurl\" class=\"g-dialog-link\""))) ?></li>
+    <?php else: ?>
+      <li><?php echo t("There aren't any photos here yet!") ?></li>
+    <?php endif; ?>
+<?php endif; ?>
 </ul>
 </div>
 
-<? if (($theme->album_descmode == "bottom") and ($item->description)): ?>
-  <div id="g-info"><div class="g-description"><?= $theme->bb2html(html::purify($item->description), 1) ?></div></div>
-<? endif; ?>
-<?= $theme->album_bottom() ?>
+<?php if (($theme->album_descmode == "bottom") and ($item->description)): ?>
+  <div id="g-info"><div class="g-description"><?php echo $theme->bb2html(html::purify($item->description), 1) ?></div></div>
+<?php endif; ?>
+<?php echo $theme->album_bottom() ?>
 
-<?= $theme->add_paginator("bottom"); ?>
+<?php echo $theme->add_paginator("bottom"); ?>

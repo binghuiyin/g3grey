@@ -1,4 +1,4 @@
-<?
+<?php
 
 class GreyDragon_Controller extends Controller {
 
