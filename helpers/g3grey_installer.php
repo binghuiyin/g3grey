@@ -17,7 +17,7 @@
  */
 ?>
 <?php
-class greydragon_installer {
+class g3grey_installer {
   static function install() {
     site_status::warning(t("Initial configuration for the theme may be required. Visit Admin\Appearance\Theme Options before continue."), "gd_init_configuration");
   }

@@ -17,7 +17,7 @@
  */
 ?>
 <?php
-class greydragon_event_Core {
+class g3grey_event_Core {
 
   static function site_menu($menu, $theme) {
     $submenu = $menu->get("add_menu");
@@ -77,15 +77,15 @@ class greydragon_event_Core {
   }
 
   static function add_path_ex($setting, $cmd, $cookie, $path, $default) {
-    $value = module::get_var("th_greydragon", $setting, $default);
+    $value = module::get_var("th_g3grey", $setting, $default);
     $value = self::read_session_cmdparam($cmd, $cookie, $value);
 
-    self::add_path("greydragon/css/" . $path . "/" . $value);
+    self::add_path("g3grey/css/" . $path . "/" . $value);
   }
 
   static function gallery_ready() {
-    self::add_path_ex("frame_pack", "framepack", "gd_framepack", "framepacks", "greydragon");
-    self::add_path_ex("color_pack", "colorpack", "gd_colorpack", "colorpacks", "greydragon");
+    self::add_path_ex("frame_pack", "framepack", "gd_framepack", "framepacks", "g3grey");
+    self::add_path_ex("color_pack", "colorpack", "gd_colorpack", "colorpacks", "g3grey");
     self::add_path("custom");
   }
 }

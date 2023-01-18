@@ -1,6 +1,6 @@
 <?php
 
-class GreyDragon_Controller extends Controller {
+class G3Grey_Controller extends Controller {
 
   public function custom_css() {
 

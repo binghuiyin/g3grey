@@ -22,7 +22,7 @@ class Admin_Theme_Options_Controller extends Admin_Controller {
   protected $min_gallery_ver = 49;
 
   private function load_theme_info() {
-    $file = THEMEPATH . "greydragon/theme.info";
+    $file = THEMEPATH . "g3grey/theme.info";
     $theme_info = new ArrayObject(parse_ini_file($file), ArrayObject::ARRAY_AS_PROPS);
     return $theme_info;
   }
@@ -39,7 +39,7 @@ class Admin_Theme_Options_Controller extends Admin_Controller {
 
   private function get_packlist($type, $filename) {
     $packlist = array();
-    $packroot = THEMEPATH . 'greydragon/css/' . $type . '/';
+    $packroot = THEMEPATH . 'g3grey/css/' . $type . '/';
 
     foreach (scandir($packroot) as $pack_name):
       if (file_exists($packroot . "$pack_name/css/" . $filename . ".css")):
@@ -78,9 +78,9 @@ class Admin_Theme_Options_Controller extends Admin_Controller {
 
   /* Convert old values ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
   protected function upgrade_settings() {
-    if (module::get_var("th_greydragon", "hide_thumbmeta")):
-      module::set_var("th_greydragon", "thumb_metamode", "hide");
-      module::clear_var("th_greydragon", "hide_thumbmeta");
+    if (module::get_var("th_g3grey", "hide_thumbmeta")):
+      module::set_var("th_g3grey", "thumb_metamode", "hide");
+      module::clear_var("th_g3grey", "hide_thumbmeta");
     endif;
 
     if (module::get_var("gallery", "appletouchicon_url")):
@@ -89,40 +89,40 @@ class Admin_Theme_Options_Controller extends Admin_Controller {
       module::clear_var("gallery", "appletouchicon_url");
     endif;
 
-    if (module::get_var("th_greydragon", "flex_rows", FALSE)):
-      module::set_var("th_greydragon", "column_count", -1);
-      module::clear_var("th_greydragon", "flex_rows");
+    if (module::get_var("th_g3grey", "flex_rows", FALSE)):
+      module::set_var("th_g3grey", "column_count", -1);
+      module::clear_var("th_g3grey", "flex_rows");
     endif;
 
-    if (module::get_var("th_greydragon", "thumb_descmode") == "overlay_static"):
-      module::set_var("th_greydragon", "thumb_descmode", "overlay_top");
+    if (module::get_var("th_g3grey", "thumb_descmode") == "overlay_static"):
+      module::set_var("th_g3grey", "thumb_descmode", "overlay_top");
     endif;
 
-    if (module::get_var("th_greydragon", "mainmenu_position") == "1"):
-      module::set_var("th_greydragon", "mainmenu_position", "top");
+    if (module::get_var("th_g3grey", "mainmenu_position") == "1"):
+      module::set_var("th_g3grey", "mainmenu_position", "top");
     endif;
 
-    if (module::get_var("th_greydragon", "hide_breadcrumbs")):
-      module::set_var("th_greydragon", "breadcrumbs_position", "hide");
-      module::clear_var("th_greydragon", "hide_breadcrumbs");
+    if (module::get_var("th_g3grey", "hide_breadcrumbs")):
+      module::set_var("th_g3grey", "breadcrumbs_position", "hide");
+      module::clear_var("th_g3grey", "hide_breadcrumbs");
     endif;
 
-    if (module::get_var("th_greydragon", "photonav_position")):
-      $temp = module::get_var("th_greydragon", "photonav_position");
-      module::set_var("th_greydragon", "paginator_album", $temp);
-      module::set_var("th_greydragon", "paginator_photo", $temp);
-      module::clear_var("th_greydragon", "photonav_position");
+    if (module::get_var("th_g3grey", "photonav_position")):
+      $temp = module::get_var("th_g3grey", "photonav_position");
+      module::set_var("th_g3grey", "paginator_album", $temp);
+      module::set_var("th_g3grey", "paginator_photo", $temp);
+      module::clear_var("th_g3grey", "photonav_position");
     endif;
 
-    if (module::get_var("th_greydragon", "sidebar_allowed") == "none"):
-      module::set_var("th_greydragon", "sidebar_allowed", "default");
+    if (module::get_var("th_g3grey", "sidebar_allowed") == "none"):
+      module::set_var("th_g3grey", "sidebar_allowed", "default");
     endif;
 
-    if (module::get_var("th_greydragon", "thumb_topalign")):
-      module::set_var("th_greydragon", "thumb_imgalign", "top");
-      module::clear_var("th_greydragon", "thumb_topalign");
-    elseif ((module::get_var("th_greydragon", "thumb_ratio") == "photo") && (!module::get_var("th_greydragon", "thumb_imgalign"))):
-      module::set_var("th_greydragon", "thumb_imgalign", "center");
+    if (module::get_var("th_g3grey", "thumb_topalign")):
+      module::set_var("th_g3grey", "thumb_imgalign", "top");
+      module::clear_var("th_g3grey", "thumb_topalign");
+    elseif ((module::get_var("th_g3grey", "thumb_ratio") == "photo") && (!module::get_var("th_g3grey", "thumb_imgalign"))):
+      module::set_var("th_g3grey", "thumb_imgalign", "center");
     endif;
   }
 
@@ -147,7 +147,7 @@ class Admin_Theme_Options_Controller extends Admin_Controller {
     $gallery_ver = module::get_version("gallery");
     $this->prerequisite_check($group, "vercheck", $gallery_ver >= $this->min_gallery_ver, 
       t("Gallery 3 Core v.") . $this->min_gallery_ver . "+", t("Installed"), t("Required"), FALSE, sprintf(t("Check Failed. Minimum Required Version is %s. Found %s."), $this->min_gallery_ver, $gallery_ver));
-    if (module::get_var("th_greydragon", "allow_root_page")):
+    if (module::get_var("th_g3grey", "allow_root_page")):
       $this->prerequisite_check($group, "rsscheck", $rssmodulecheck, 
         t("RSS Module"), t("Found"), t("not Found"), TRUE, t("Install RSS module to Enable Root Page Support"));
     endif;
@@ -159,7 +159,7 @@ class Admin_Theme_Options_Controller extends Admin_Controller {
     $group = $form->group("recommended")->label(t("Suggested Modules"));
 
     $check_infos = array();
-    if (!module::get_var("th_greydragon", "hide_thumbmeta")):
+    if (!module::get_var("th_g3grey", "hide_thumbmeta")):
       $this->prerequisite_check($group, "info", (module::is_active("info") and module::info("info")), 
         t("Info Module"), t("Found"), t("Required"), FALSE, t("Check Failed. Module is required to display Thumb metadata."));
     endif;
@@ -215,7 +215,7 @@ class Admin_Theme_Options_Controller extends Admin_Controller {
     $this->prerequisite_check($group, "thumbnavcheck", $thumbnavcheck, 
       t("ThumbNav Module"), t("Found"), t("not Found"), TRUE, sprintf(t("Install %smodule%s to Enable Thumb Navigation Support"), '<a href="http://codex.gallery2.org/Gallery3:Modules:thumbnav" target="_blank">', '</a>'));
 
-    $thumb_ratio = module::get_var("th_greydragon", "thumb_ratio", "photo");
+    $thumb_ratio = module::get_var("th_g3grey", "thumb_ratio", "photo");
     $thumb_ratio_ex = FALSE;
     switch ($thumb_ratio):
       case "photo_ex":
@@ -240,22 +240,22 @@ class Admin_Theme_Options_Controller extends Admin_Controller {
 
     /* General Settings ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
-    $sidebar_allowed = module::get_var("th_greydragon", "sidebar_allowed");
-    $sidebar_visible = module::get_var("th_greydragon", "sidebar_visible");
+    $sidebar_allowed = module::get_var("th_g3grey", "sidebar_allowed");
+    $sidebar_visible = module::get_var("th_g3grey", "sidebar_visible");
 
     $group = $form->group("edit_theme")->label(t("General Settings"));
     $group->hidden("g_auto_delay")
-      ->value(module::get_var("th_greydragon", "auto_delay", 30));
+      ->value(module::get_var("th_g3grey", "auto_delay", 30));
     $group->input("row_count")
       ->label(t("Rows per Album Page"))
       ->rules("required|valid_digit")
       ->error_messages("required", t("You must enter a number"))
       ->error_messages("valid_digit", t("You must enter a number"))
-      ->value(module::get_var("th_greydragon", "row_count", 3));
+      ->value(module::get_var("th_g3grey", "row_count", 3));
     $group->dropdown("column_count")
       ->label(t("Columns per Album Page"))
       ->options(array("2" => t("2 columns"), "3" => t("3 columns"), "4" => t("4 columns"), "5" => t("5 columns"), "-1" => t("Flexible (3 x Number of Rows)")))
-      ->selected(module::get_var("th_greydragon", "column_count", 3));
+      ->selected(module::get_var("th_g3grey", "column_count", 3));
     $group->input("resize_size")
       ->label(t("Resized Image Size (in pixels)"))
       ->rules("required|valid_digit")
@@ -264,7 +264,7 @@ class Admin_Theme_Options_Controller extends Admin_Controller {
       ->value(module::get_var("gallery", "resize_size"));
     $group->input("logo_path")
       ->label(t("Alternate Logo Image"))
-      ->value(module::get_var("th_greydragon", "logo_path"));
+      ->value(module::get_var("th_g3grey", "logo_path"));
     $group->input("favicon")
       ->label(t("URL (or relative path) to your favicon.ico"))
       ->value(module::get_var("gallery", "favicon_url"));
@@ -279,15 +279,15 @@ class Admin_Theme_Options_Controller extends Admin_Controller {
       ->value(module::get_var("gallery", "footer_text"));
     $group->input("copyright")
       ->label(t("Copyright Message"))
-      ->value(module::get_var("th_greydragon", "copyright"));
+      ->value(module::get_var("th_g3grey", "copyright"));
     $group->dropdown("colorpack")
       ->label(t("Color Pack/Site theme"))
       ->options(self::get_colorpacks())
-      ->selected(module::get_var("th_greydragon", "color_pack", "greydragon"));
+      ->selected(module::get_var("th_g3grey", "color_pack", "g3grey"));
     $group->dropdown("framepack")
       ->label(t("Thumb Frame Pack"))
       ->options(self::get_framepacks())
-      ->selected(module::get_var("th_greydragon", "frame_pack", "greydragon"));
+      ->selected(module::get_var("th_g3grey", "frame_pack", "g3grey"));
 
     /* Advanced Options - General ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
@@ -295,26 +295,26 @@ class Admin_Theme_Options_Controller extends Admin_Controller {
     $group->dropdown("viewmode")
       ->label(t("Theme View Mode"))
       ->options(array("default" => t("Full Mode (Default)"), "mini" => t("Mini Mode")))
-      ->selected(module::get_var("th_greydragon", "viewmode", "default"));
+      ->selected(module::get_var("th_g3grey", "viewmode", "default"));
     $group->dropdown("mainmenu_position")
       ->label(t("Main Menu Position"))
       ->options(array("default" => t("Bottom-Left (Default)"), "top" => t("Top-Left"), "bar" => t("Top Bar")))
-      ->selected(module::get_var("th_greydragon", "mainmenu_position"));
+      ->selected(module::get_var("th_g3grey", "mainmenu_position"));
     $group->dropdown("loginmenu_position")
       ->label(t("Login Menu Position"))
       ->options(array("header" => t("Header"), "default" => t("Footer (Default)"), "hide" => t("Hide")))
-      ->selected(module::get_var("th_greydragon", "loginmenu_position", "default"));
+      ->selected(module::get_var("th_g3grey", "loginmenu_position", "default"));
     $group->dropdown("breadcrumbs_position")
       ->label(t("Breadcrumbs Position"))
       ->options(array("default" => t("Bottom-Right (Default)"), "bottom-left" => t("Bottom-Left"), "top-right" => t("Top-Right"), "top-left" => t("Top-Left"), "hide" => t("Hide")))
-      ->selected(module::get_var("th_greydragon", "breadcrumbs_position"));
+      ->selected(module::get_var("th_g3grey", "breadcrumbs_position"));
     $group->dropdown("title_source")
       ->label(t("Title Source"))
       ->options(array("default" => t("Title (Default)"), "no-filename" => t("Title/Suppress File Name"), "description" => t("Description")))
-      ->selected(module::get_var("th_greydragon", "title_source", "default"));
+      ->selected(module::get_var("th_g3grey", "title_source", "default"));
     $group->input("custom_css_path")
       ->label(t("File Name of custom.css or equivalent"))
-      ->value(module::get_var("th_greydragon", "custom_css_path"));
+      ->value(module::get_var("th_g3grey", "custom_css_path"));
     $group->input("resize_quality")
       ->label(t("Resized Image Quallity (in %)"))
       ->rules("required|valid_digit")
@@ -330,25 +330,25 @@ class Admin_Theme_Options_Controller extends Admin_Controller {
 
     $group->checkbox("show_guest_menu")
       ->label(t("Show Main Menu for Guest Users"))
-      ->checked(module::get_var("th_greydragon", "show_guest_menu"));
+      ->checked(module::get_var("th_g3grey", "show_guest_menu"));
     $group->checkbox("toolbar_large")
       ->label(t("Use Large Toolbar Buttons"))
-      ->checked(module::get_var("th_greydragon", "toolbar_large"));
+      ->checked(module::get_var("th_g3grey", "toolbar_large"));
     $group->checkbox("show_credits")
       ->label(t("Show Site Credits"))
       ->checked(module::get_var("gallery", "show_credits"));
     $group->checkbox("breadcrumbs_showinroot")
       ->label(t("Show Breadcrumbs in root album/root page"))
-      ->checked(module::get_var("th_greydragon", "breadcrumbs_showinroot"));
+      ->checked(module::get_var("th_g3grey", "breadcrumbs_showinroot"));
     $group->checkbox("disable_seosupport")
       ->label(t("Disallow Search Engine Indexing (No Bots)"))
-      ->checked(module::get_var("th_greydragon", "disable_seosupport"));
+      ->checked(module::get_var("th_g3grey", "disable_seosupport"));
     $group->checkbox("desc_allowbbcode")
       ->label(t("Allow BBCode/HTML in Descriptions"))
-      ->checked(module::get_var("th_greydragon", "desc_allowbbcode"));
+      ->checked(module::get_var("th_g3grey", "desc_allowbbcode"));
     $group->checkbox("use_permalinks")
       ->label(t("Use Permalinks for Navigation"))
-      ->checked(module::get_var("th_greydragon", "use_permalinks"));
+      ->checked(module::get_var("th_g3grey", "use_permalinks"));
 
     /* Advanced Options - Album page ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
@@ -356,17 +356,17 @@ class Admin_Theme_Options_Controller extends Admin_Controller {
     $group->dropdown("paginator_album")
       ->label(t("Paginator Position"))
       ->options(array("top" => t("Top"), "bottom" => t("Bottom"), "both" => t("Both"), "none" => t("None")))
-      ->selected(module::get_var("th_greydragon", "paginator_album"));
+      ->selected(module::get_var("th_g3grey", "paginator_album"));
     $group->dropdown("album_descmode")
       ->label(t("Description Display Mode"))
       ->options(array("hide" => t("Hide"), "top" => t("Top"), "bottom" => t("Bottom")))
-      ->selected(module::get_var("th_greydragon", "album_descmode"));
+      ->selected(module::get_var("th_g3grey", "album_descmode"));
     $group->checkbox("disablephotopage")
       ->label(t("Disable Photo Page (use Slideshow Mode)"))
-      ->checked(module::get_var("th_greydragon", "disablephotopage"));
+      ->checked(module::get_var("th_g3grey", "disablephotopage"));
     $group->checkbox("hidecontextmenu")
       ->label(t("Hide Context Menu"))
-      ->checked(module::get_var("th_greydragon", "hidecontextmenu"));
+      ->checked(module::get_var("th_g3grey", "hidecontextmenu"));
 
     /* Advanced Options - Album page - Thumbs ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
@@ -381,25 +381,25 @@ class Admin_Theme_Options_Controller extends Admin_Controller {
     $group->dropdown("thumb_imgalign")
       ->label(t("Thumb Image Align"))
       ->options(array("top" => t("Top"), "center" => t("Center"), "bottom" => t("Bottom"), "fit" => t("Fit")))
-      ->selected(module::get_var("th_greydragon", "thumb_imgalign"));
+      ->selected(module::get_var("th_g3grey", "thumb_imgalign"));
 
     $group->dropdown("thumb_descmode_a")
       ->label(t("Title Display Mode (Album)"))
       ->options(array("overlay" => t("Overlay Top"), "overlay_top" => t("Overlay Top (Static)"), 
           "overlay_bottom" => t("Overlay Bottom (Static)"), "bottom" => t("Bottom"), "hide" => t("Hide")))
-      ->selected(module::get_var("th_greydragon", "thumb_descmode_a"));
+      ->selected(module::get_var("th_g3grey", "thumb_descmode_a"));
     $group->dropdown("thumb_descmode")
       ->label(t("Title Display Mode (Photo)"))
       ->options(array("overlay" => t("Overlay Top"), "overlay_top" => t("Overlay Top (Static)"), 
           "overlay_bottom" => t("Overlay Bottom (Static)"), "bottom" => t("Bottom"), "hide" => t("Hide")))
-      ->selected(module::get_var("th_greydragon", "thumb_descmode"));
+      ->selected(module::get_var("th_g3grey", "thumb_descmode"));
     $group->dropdown("thumb_metamode")
       ->label(t("Meta Data Display Mode"))
       ->options(array("default" => t("Overlay (Default)"), "merged" => t("Merge with Title"), "hide" => t("Hide")))
-      ->selected(module::get_var("th_greydragon", "thumb_metamode", "default"));
+      ->selected(module::get_var("th_g3grey", "thumb_metamode", "default"));
     $group->checkbox("thumb_random")
       ->label(t("Randomize Thumb Image"))
-      ->checked(module::get_var("th_greydragon", "thumb_random"));
+      ->checked(module::get_var("th_g3grey", "thumb_random"));
 
     /* Advanced Options - Photo page ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
@@ -407,38 +407,38 @@ class Admin_Theme_Options_Controller extends Admin_Controller {
     $group->dropdown("paginator_photo")
       ->label(t("Paginator Position"))
       ->options(array("top" => t("Top"), "bottom" => t("Bottom"), "both" => t("Both"), "none" => t("None")))
-      ->selected(module::get_var("th_greydragon", "paginator_photo"));
+      ->selected(module::get_var("th_g3grey", "paginator_photo"));
     $group->dropdown("photo_descmode")
       ->label(t("Description Display Mode"))
       ->options(array("overlay_top" => t("Overlay Top"), "overlay_bottom" => t("Overlay Bottom"), "overlay_top_s" => t("Overlay Top (Static)"),
          "overlay_bottom_s" => t("Overlay Bottom (Static)"), "bottom" => t("Bottom"), "top" => t("Top"), "hide" => t("Hide")))
-      ->selected(module::get_var("th_greydragon", "photo_descmode"));
+      ->selected(module::get_var("th_g3grey", "photo_descmode"));
     $group->dropdown("photo_popupbox")
       ->label(t($check_info["module_name"]) . " " . t("Mode"))
       ->options(array("default" => t("Default (Slideshow/Preview)"), "preview" => t("Preview Only"), "none" => t("Disable")))
-      ->selected(module::get_var("th_greydragon", "photo_popupbox"));
+      ->selected(module::get_var("th_g3grey", "photo_popupbox"));
     $group->checkbox("thumb_inpage")
       ->label(t("Keep Thumb Nav Block on the side"))
-      ->checked(module::get_var("th_greydragon", "thumb_inpage"));
+      ->checked(module::get_var("th_g3grey", "thumb_inpage"));
     if (!$thumbnavcheck):
       $group->thumb_inpage->disabled(true);
     endif;
     $group->checkbox("hide_photometa")
       ->label(t("Hide Item Meta Data"))
-      ->checked(module::get_var("th_greydragon", "hide_photometa", TRUE));
+      ->checked(module::get_var("th_g3grey", "hide_photometa", TRUE));
 
     /* Advanced Options - Root Page ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
     $group = $form->group("edit_theme_adv_root")->label(t("Advanced Options - Root Page"));
     $group->checkbox("allow_root_page")
       ->label(t("Allow root page"))
-      ->checked(module::get_var("th_greydragon", "allow_root_page"));
+      ->checked(module::get_var("th_g3grey", "allow_root_page"));
     $group->checkbox("show_root_desc")
       ->label(t("Show Gallery Description"))
-      ->checked(!module::get_var("th_greydragon", "hide_root_desc"));
+      ->checked(!module::get_var("th_g3grey", "hide_root_desc"));
     $group->input("root_feed")
       ->label(t("Slideshow RSS Feed URL"))
-      ->value(module::get_var("th_greydragon", "root_feed", "/gallery3/index.php/rss/feed/gallery/latest"));
+      ->value(module::get_var("th_g3grey", "root_feed", "/gallery3/index.php/rss/feed/gallery/latest"));
     $group->dropdown("root_cyclemode")
       ->label(t("Cycle Effect (Default: Fade)"))
       ->options(array("fade" => t("Fade"), "fadeout" => t("Fade Out"), "fadeZoom" => t("Fade Zoom"), "blindX" => t("Blind X"), "blindY" => t("Blind Y"), 
@@ -447,32 +447,32 @@ class Admin_Theme_Options_Controller extends Admin_Controller {
           "scrollRight" => t("Scroll Right"), "scrollHorz" => t("Scroll Horz"), "scrollVert" => t("Scroll Vert"), "shuffle" => t("Shuffle"),      
           "slideX" => t("Slide X"), "slideY" => t("Slide Y"), "toss" => t("Toss"), "turnUp" => t("Turn Up"), "turnDown" => t("Turn Down"),
           "turnLeft" => t("Turn Left"), "turnRight" => t("Turn Right"), "uncover" => t("Uncover"), "wipe" => t("Wipe"), "zoom" => t("Zoom")))
-      ->selected(module::get_var("th_greydragon", "root_cyclemode"));
+      ->selected(module::get_var("th_g3grey", "root_cyclemode"));
     $group->input("root_delay")
       ->label(t("Slideshow Delay (Default: 15)"))
       ->rules("required|valid_digit")
       ->error_messages("required", t("You must enter a number"))
       ->error_messages("valid_digit", t("You must enter a number"))
-      ->value(module::get_var("th_greydragon", "root_delay", "15"));
+      ->value(module::get_var("th_g3grey", "root_delay", "15"));
     $group->checkbox("hide_root_sidebar")
       ->label(t("Hide Sidebar"))
-      ->checked(module::get_var("th_greydragon", "hide_root_sidebar"));
+      ->checked(module::get_var("th_g3grey", "hide_root_sidebar"));
     $group->textarea("root_description")
       ->label(t("Alternative Description (optional)"))
-      ->value(module::get_var("th_greydragon", "root_description"));
+      ->value(module::get_var("th_g3grey", "root_description"));
 
     /* Sidebar Options ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
     $group = $form->group("edit_theme_side")->label(t("Sidebar Options"));
     $group->checkbox("hide_blockheader")
       ->label(t("Hide Block Header"))
-      ->checked(module::get_var("th_greydragon", "hide_blockheader"));
+      ->checked(module::get_var("th_g3grey", "hide_blockheader"));
     $group->checkbox("sidebar_albumonly")
       ->label(t("Show Sidebar for Albums Only"))
-      ->checked(module::get_var("th_greydragon", "sidebar_albumonly"));
+      ->checked(module::get_var("th_g3grey", "sidebar_albumonly"));
     $group->checkbox("sidebar_hideguest")
       ->label(t("Show Sidebar for Guest Users"))
-      ->checked(!module::get_var("th_greydragon", "sidebar_hideguest"));
+      ->checked(!module::get_var("th_g3grey", "sidebar_hideguest"));
     $group->dropdown("sidebar_allowed")
       ->label(t("Allowed Sidebar Positions"))
       ->options(array("any" => t("Any"), "left" => t("Left"), "right" => t("Right"), "bottom" => t("Bottom"), "top" => t("Top"), "default" => t("Default Only")))
@@ -592,29 +592,29 @@ class Admin_Theme_Options_Controller extends Admin_Controller {
 
   private function save_item_state($statename, $state, $value) {
     if ($state):
-      module::set_var("th_greydragon", $statename, $value);
+      module::set_var("th_g3grey", $statename, $value);
     else:
-      module::clear_var("th_greydragon", $statename);
+      module::clear_var("th_g3grey", $statename);
     endif;
   }
 
   protected function legacy() {
-    module::clear_var("th_greydragon", "photonav_top");
-    module::clear_var("th_greydragon", "photonav_bottom");
-    module::clear_var("th_greydragon", "hide_sidebar_photo");
-    module::clear_var("th_greydragon", "hide_thumbdesc");
-    module::clear_var("th_greydragon", "use_detailview");
-    module::clear_var("th_greydragon", "horizontal_crop");
-    module::clear_var("th_greydragon", "photo_shadowbox");
-    module::clear_var("th_greydragon", "root_text");
-    module::clear_var("th_greydragon", "enable_pagecache");
+    module::clear_var("th_g3grey", "photonav_top");
+    module::clear_var("th_g3grey", "photonav_bottom");
+    module::clear_var("th_g3grey", "hide_sidebar_photo");
+    module::clear_var("th_g3grey", "hide_thumbdesc");
+    module::clear_var("th_g3grey", "use_detailview");
+    module::clear_var("th_g3grey", "horizontal_crop");
+    module::clear_var("th_g3grey", "photo_shadowbox");
+    module::clear_var("th_g3grey", "root_text");
+    module::clear_var("th_g3grey", "enable_pagecache");
 
-    module::clear_var("th_greydragon", "navigator_album");
-    module::clear_var("th_greydragon", "navigator_photo");
+    module::clear_var("th_g3grey", "navigator_album");
+    module::clear_var("th_g3grey", "navigator_photo");
 
-    module::clear_var("th_greydragon", "blendpagetrans");
-    module::clear_var("th_greydragon", "last_update");
-    module::clear_var("th_greydragon", "thumb_quality");
+    module::clear_var("th_g3grey", "blendpagetrans");
+    module::clear_var("th_g3grey", "last_update");
+    module::clear_var("th_g3grey", "thumb_quality");
   }
 
   protected function reset_theme() {
@@ -626,7 +626,7 @@ class Admin_Theme_Options_Controller extends Admin_Controller {
     module::set_var("gallery", "footer_text", "");
     module::set_var("gallery", "show_credits", FALSE);
 
-    module::clear_all_vars("th_greydragon");
+    module::clear_all_vars("th_g3grey");
   }
 
   public function save() {
@@ -681,7 +681,7 @@ class Admin_Theme_Options_Controller extends Admin_Controller {
           module::set_var("gallery", "resize_size", $resize_size);
         endif;
 
-        $_priorratio = module::get_var("th_greydragon", "thumb_ratio", "photo");
+        $_priorratio = module::get_var("th_g3grey", "thumb_ratio", "photo");
         $thumb_ratio = $form->edit_theme_adv_thumb->thumb_ratio->value;
         $thumb_ratio_ex = $form->edit_theme_adv_thumb->thumb_ratio_ex->value;
         if ($thumb_ratio_ex):
@@ -725,8 +725,8 @@ class Admin_Theme_Options_Controller extends Admin_Controller {
 
         $this->save_item_state("copyright", $form->edit_theme->copyright->value, $form->edit_theme->copyright->value);
         $this->save_item_state("logo_path", $form->edit_theme->logo_path->value, $form->edit_theme->logo_path->value);
-        $this->save_item_state("color_pack", (($color_pack) and ($color_pack != "greydragon")), $color_pack);
-        $this->save_item_state("frame_pack", (($frame_pack) and ($frame_pack != "greydragon")), $frame_pack);
+        $this->save_item_state("color_pack", (($color_pack) and ($color_pack != "g3grey")), $color_pack);
+        $this->save_item_state("frame_pack", (($frame_pack) and ($frame_pack != "g3grey")), $frame_pack);
 
         $auto_delay = $form->edit_theme->g_auto_delay->value;
         $this->save_item_state("auto_delay", $auto_delay != 30, $auto_delay);

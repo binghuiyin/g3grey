@@ -65,7 +65,7 @@
 <meta name="msapplication-task" content="name=<?php echo t("Gallery") ?>: <?php echo t("Root Album") ?>; action-uri=<?php echo item::root()->url(); ?>; icon-uri=favicon.ico" />
 <?php endif; ?>
 <?php if (identity::active_user()->admin): ?>
-<meta name="msapplication-task-separator" content="gallery3-greydragon" />
+<meta name="msapplication-task-separator" content="gallery3-g3grey" />
 <meta name="msapplication-task" content="name=<?php echo t("Admin") ?>: <?php echo t("Dashboard") ?>; action-uri=<?php echo url::site("admin"); ?>; icon-uri=favicon.ico" />
 <?php endif; ?>
 <!-- Internet Explorer 9 Meta tags : End -->

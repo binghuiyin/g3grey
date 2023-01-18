@@ -74,8 +74,8 @@ class Theme_View extends Theme_View_Core {
 
   protected $last_update = 0;
 
-  protected $colorpack = "greydragon";
-  protected $framepack = "greydragon";
+  protected $colorpack = "g3grey";
+  protected $framepack = "g3grey";
   protected $themename = "";
   protected $themeversion = "";
   protected $themecss = array();
@@ -91,7 +91,7 @@ class Theme_View extends Theme_View_Core {
   }
 
   protected function ensureoptionsvalue($key, $default) {
-    return ($this->ensurevalue(module::get_var("th_greydragon", $key), $default));
+    return ($this->ensurevalue(module::get_var("th_g3grey", $key), $default));
   }
 
   public function read_session_cmdparam($cmd, $cookie, $issession, $default) {
@@ -142,8 +142,8 @@ class Theme_View extends Theme_View_Core {
     else:
       $this->sidebarvisible = $this->read_session_cmdparam("sb", "gd_sidebar_pos", FALSE, $_sb_visible);
     endif;
-    $this->colorpack = $this->read_session_cmdparam("colorpack", "gd_colorpack", TRUE,  $this->ensureoptionsvalue("color_pack", "greydragon"));
-    $this->framepack = $this->read_session_cmdparam("framepack", "gd_framepack", TRUE, $this->ensureoptionsvalue("frame_pack", "greydragon"));
+    $this->colorpack = $this->read_session_cmdparam("colorpack", "gd_colorpack", TRUE,  $this->ensureoptionsvalue("color_pack", "g3grey"));
+    $this->framepack = $this->read_session_cmdparam("framepack", "gd_framepack", TRUE, $this->ensureoptionsvalue("frame_pack", "g3grey"));
     $this->viewmode  = $this->read_session_cmdparam("viewmode", "gd_viewmode",  TRUE, $this->ensureoptionsvalue("viewmode", "default"));
     $this->is_rtl    = $this->read_session_cmdparam("is_rtl", "gd_rtl", TRUE, "no") == "yes";
     $this->thumb_ratio = $this->read_session_cmdparam("ratio", "gd_ratio", TRUE, $this->ensureoptionsvalue("thumb_ratio", "photo"));
@@ -256,7 +256,7 @@ class Theme_View extends Theme_View_Core {
     $this->root_feed = $this->ensureoptionsvalue("root_feed", "gallery/latest");
     $this->root_cyclemode = $this->ensureoptionsvalue("root_cyclemode", "fade");
     $this->root_delay = $this->ensureoptionsvalue("root_delay", "15");
-    $this->root_description = module::get_var("th_greydragon", "root_description");
+    $this->root_description = module::get_var("th_g3grey", "root_description");
     if ($this->ensureoptionsvalue("use_permalinks", FALSE)):
       $this->permalinks = array("enter" => "enter", "root" => "root");
     endif;
@@ -270,7 +270,7 @@ class Theme_View extends Theme_View_Core {
     endif;
 
     try {
-      $theme_info = new ArrayObject(parse_ini_file(THEMEPATH . "greydragon/theme.info"), ArrayObject::ARRAY_AS_PROPS);
+      $theme_info = new ArrayObject(parse_ini_file(THEMEPATH . "g3grey/theme.info"), ArrayObject::ARRAY_AS_PROPS);
       $this->themename = $theme_info->name;
       $this->themeversion = $theme_info->version;
     } catch (Exception $e) {
@@ -777,7 +777,7 @@ class Theme_View extends Theme_View_Core {
       $version_string = SafeString::of_safe_html('Gallery ' . gallery::VERSION);
       return '<ul id="g-credits">'
         . '<li class="g-branding"><a id="g-gallery-logo" href="http://galleryproject.org" title="' . $version_string . '"></a>'
-        . '<a id="g-theme-logo" href="http://codex.galleryproject.org/Gallery3:Themes:greydragon" target="_blank" title="' . $this->themename . ' ' . $this->themeversion . ' (' . $this->colorpack . ')"></a></li>'
+        . '<a id="g-theme-logo" href="https://forum.g2soft.net" target="_blank" title="' . $this->themename . ' ' . $this->themeversion . ' (' . $this->colorpack . ')"></a></li>'
         . gallery_theme::credits()
         . '</ul>';
     else:

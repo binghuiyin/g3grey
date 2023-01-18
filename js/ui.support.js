@@ -1,5 +1,6 @@
 /*
-* Grey Dragon Theme: JS support 
+* G3Grey Theme: JS support
+* Copyright (C) 2023 David Yin
 * Copyright (c) 2007-2011 Serge Dosyukov
 * Dual licensed under the MIT and GPL licenses.
 */
