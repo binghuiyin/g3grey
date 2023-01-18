@@ -1,0 +1,20 @@
+/* Start Apple Styles */
+/* These styles support Apple products display of CSS. NOTES (orientation:landscape), (orientation:portrait) can also be used to be more specific */
+/* iPad [portrait + landscape] */
+@media only screen and (min-device-width:768px) and (max-device-width:1024px)
+{
+	#cboxOverlay { height: 200%; width: 200%; }
+	.g-bar#g-site-menu { width: 200%; }
+}
+
+/* iPhone 4 [portrait + landscape] */
+@media only screen and (resolution:326dpi) { }
+
+/* screen and (resolution: 163dpi) */
+/* iPhone 3 [portrait + landscape] */
+@media only screen and (max-device-width:480px) { }
+
+/* iPod Touch and older [portrait + landscape] */
+@media only screen and (resolution:326dpi) { }
+
+/* End Apple Styles */

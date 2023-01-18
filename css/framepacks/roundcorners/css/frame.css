@@ -1,0 +1,44 @@
+/**
+ * Gallery 3 Grey Dragon Theme
+ * Copyright (C) 2006-2010 Serguei Dosyukov
+ *
+ * CSS rules - Frames - Round Corners
+ */
+
+/* layous.css - Extended Layout - 4 columns ~~~~~~~~~~*/
+body.g-extended.g-column-4 #g-header,
+body.g-extended.g-column-4 #g-footer,
+body.g-extended.g-column-4 #g-main,
+body.g-extended.g-column-4 #g-main-in,
+body.g-extended.g-column-4 #g-header,
+body.g-extended.g-column-4 #g-column-top,
+body.g-extended.g-column-4 #g-column-bottom { min-width: 1278px; }
+
+/* layous.css - Extended Layout - 4 columns+sidebar ~~*/
+body.g-extended.g-column-4.g-sidebar-right #g-header,
+body.g-extended.g-column-4.g-sidebar-right #g-footer,
+body.g-extended.g-column-4.g-sidebar-right #g-main,
+body.g-extended.g-column-4.g-sidebar-right #g-main-in,
+body.g-extended.g-column-4.g-sidebar-left #g-header,
+body.g-extended.g-column-4.g-sidebar-left #g-footer,
+body.g-extended.g-column-4.g-sidebar-left #g-main,
+body.g-extended.g-column-4.g-sidebar-left #g-main-in { min-width: 1520px; }
+
+.g-thumbslide .g-description { margin: 0 0 0 0px; border-top-left-radius: 10px; border-top-right-radius: 10px; }
+.g-thumbslide .g-description.g-overlay-bottom { border-top-left-radius: 0; border-top-right-radius: 0; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px; bottom: -3px; }
+.g-thumbslide .g-metadata    { margin: 0 0 1px 0px; }
+
+.g-item .g-context-menu { left: 188px; top: 12px; }
+.g-item .g-context-menu:hover { left: 6px; top: 6px; }
+.g-extended .g-item .g-context-menu { left: 288px; top: 12px; }
+.g-extended .g-item .g-context-menu:hover { left: 6px; top: 6px; }
+
+.g-default .g-thumbslide .g-description, 
+.g-expanded .g-thumbslide .g-description { border-color: #ADAEAD; color: #3c5580; }
+.g-thumbslide .g-metadata { border-color: #ADAEAD; color: #3c5580; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px; }
+.g-thumbcrop { border-radius: 10px; box-shadow: 3px 3px 8px #333; }
+.g-thumbslide { background-image: none; }
+.g-thumbslide:hover .g-thumbcrop { box-shadow: 4px 4px 8px #333; }
+
+#g-photo .g-resize { border: none; background: transparent; }
+#g-photo .g-resize a { border-radius: 10px; box-shadow: 3px 3px 8px #333; }

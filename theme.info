@@ -1,0 +1,10 @@
+name        = "Grey Dragon Theme"
+description = "A Crisp flexible theme with support of Color Packs and minimized on JS overhead"
+version     = 4.0.2
+author      = "2010-2014 Serguei Dosyukov"
+site        = 1
+admin       = 0
+author_name = "Serguei Dosyukov"
+author_url  = "http://blog.dragonsoft.us/gallery-3/"
+info_url    = "http://codex.galleryproject.org/Gallery3:Themes:greydragon";
+discuss_url = "http://galleryproject.org/forum_theme_greydragon"

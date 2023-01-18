@@ -1,0 +1,77 @@
+/**
+ * Gallery 3 Grey Dragon Theme
+ * Copyright (C) 2006-2011 Serguei Dosyukov
+ *
+ * CSS rules related to general layout
+ * Defined as 70em wide
+ */
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/* layout.css - Common ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+html { overflow: auto; overflow: -moz-scrollbars-vertical; overflow-y: scroll; }
+* { margin: 0px; }
+body { min-width: 1020px; padding: 0; }
+.g-hideitem { display: none; }
+
+/* layout.css - Header ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+#g-header { position: relative; min-width: 1020px; z-index: 5; }
+
+/* layout.css - Main ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+#g-main { min-width: 1020px; height: auto; bottom: auto; }
+#g-main-in { min-width: 1020px; height: 100%; aoverflow: auto; bottom: auto; }
+
+#g-column-left   { float: left;  width: 230px; min-height: 32em; overflow: hidden; height: 100%; }
+#g-column-right  { float: right; width: 230px; min-height: 32em; overflow: hidden; height: 100%; }
+#g-column-center { margin: 0 17em 0 17em; min-height: 32em; overflow: hidden; height: 100%; }
+#g-column-centerleft { min-height: 32em; overflow: hidden; height: 100%; }
+#g-column-centerright { min-height: 32em; overflow: hidden; height: 100%; } 
+#g-column-centerfull { position: relative; min-height: 31em; overflow: hidden; height: 100%; }
+#g-column-top { display: block; overflow: hidden; }
+#g-column-bottom { display: block; overflow: hidden; }
+
+/* layout.css - Footer ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+#g-footer { position: relative; height: auto; min-width: 1020px; min-height: 2.8em; clear: both; display: block; overflow: auto; }
+#g-footer-leftside { float: left; display: inline; }
+#g-footer-rightside { float: right; display: inline; }
+
+/* layout.css - Extended Layout ~~~~~~~~~~~~~~~~~~~~~~*/
+
+/* layous.css - Extended Layout - 3 columns+sidebar ~~*/
+body.g-extended.g-column-3.g-sidebar-right #g-header,
+body.g-extended.g-column-3.g-sidebar-right #g-footer,
+body.g-extended.g-column-3.g-sidebar-right #g-main,
+body.g-extended.g-column-3.g-sidebar-right #g-main-in,
+body.g-extended.g-column-3.g-sidebar-right #g-column-top,
+body.g-extended.g-column-3.g-sidebar-right #g-column-bottom,
+body.g-extended.g-column-3.g-sidebar-left #g-header,
+body.g-extended.g-column-3.g-sidebar-left #g-footer,
+body.g-extended.g-column-3.g-sidebar-left #g-main,
+body.g-extended.g-column-3.g-sidebar-left #g-main-in,
+body.g-extended.g-column-3.g-sidebar-left #g-column-top,
+body.g-extended.g-column-3.g-sidebar-left #g-column-bottom { min-width: 1250px; }
+
+/* layous.css - Extended Layout - 4 columns ~~~~~~~~~~*/
+body.g-extended.g-column-4 #g-header,
+body.g-extended.g-column-4 #g-footer,
+body.g-extended.g-column-4 #g-main,
+body.g-extended.g-column-4 #g-main-in,
+body.g-extended.g-column-4 #g-column-top,
+body.g-extended.g-column-4 #g-column-bottom { min-width: 1342px; }
+
+/* layous.css - Extended Layout - 4 columns+sidebar ~~*/
+body.g-extended.g-column-4.g-sidebar-right #g-header,
+body.g-extended.g-column-4.g-sidebar-right #g-footer,
+body.g-extended.g-column-4.g-sidebar-right #g-main,
+body.g-extended.g-column-4.g-sidebar-right #g-main-in,
+body.g-extended.g-column-4.g-sidebar-right #g-column-top,
+body.g-extended.g-column-4.g-sidebar-right #g-column-bottom,
+body.g-extended.g-column-4.g-sidebar-left #g-header,
+body.g-extended.g-column-4.g-sidebar-left #g-footer,
+body.g-extended.g-column-4.g-sidebar-left #g-main,
+body.g-extended.g-column-4.g-sidebar-left #g-main-in,
+body.g-extended.g-column-4.g-sidebar-left #g-column-top,
+body.g-extended.g-column-4.g-sidebar-left #g-column-bottom { min-width: 1580px; }

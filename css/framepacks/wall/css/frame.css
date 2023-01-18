@@ -1,0 +1,48 @@
+/**
+ * Gallery 3 Grey Dragon Theme
+ * Copyright (C) 2006-2010 Serguei Dosyukov
+ *
+ * CSS rules - Frames - Simple
+ */
+
+/* layous.css - Extended Layout - 4 columns ~~~~~~~~~~*/
+body.g-extended.g-column-4 #g-header,
+body.g-extended.g-column-4 #g-footer,
+body.g-extended.g-column-4 #g-main,
+body.g-extended.g-column-4 #g-main-in,
+body.g-extended.g-column-4 #g-column-top,
+body.g-extended.g-column-4 #g-column-bottom { min-width: 1224px; }
+
+/* layous.css - Extended Layout - 4 columns+sidebar ~~*/
+body.g-extended.g-column-4.g-sidebar-right #g-header,
+body.g-extended.g-column-4.g-sidebar-right #g-footer,
+body.g-extended.g-column-4.g-sidebar-right #g-main,
+body.g-extended.g-column-4.g-sidebar-right #g-main-in,
+body.g-extended.g-column-4.g-sidebar-left #g-header,
+body.g-extended.g-column-4.g-sidebar-left #g-footer,
+body.g-extended.g-column-4.g-sidebar-left #g-main,
+body.g-extended.g-column-4.g-sidebar-left #g-main-in { min-width: 1470px; }
+
+
+.g-thumbslide { padding-top: 0; padding-left: 0; width: 200px; min-height: auto; }
+.g-extended .g-thumbslide { width: 300px; }
+
+.g-thumbtype-flm .g-thumbslide, .g-extended .g-thumbtype-flm .g-thumbslide,
+.g-thumbtype-dgt .g-thumbslide, .g-extended .g-thumbtype-dgt .g-thumbslide,
+.g-thumbtype-wd  .g-thumbslide, .g-extended .g-thumbtype-wd  .g-thumbslide,
+.g-thumbtype-sqr .g-thumbslide, .g-extended .g-thumbtype-sqr .g-thumbslide { height: auto; }
+
+.g-item .g-context-menu { left: 184px; top: 2px; }
+.g-extended .g-item .g-context-menu { left: 282px; top: 4px; }
+.g-item .g-context-menu:hover, .g-extended .g-item .g-context-menu:hover { left: 0px; top: 0; }
+
+#g-album-grid .g-item { margin: 0; min-width: 200px; }
+.g-extended #g-album-grid .g-item { min-width: 300px; }
+
+.g-album-grid-container .g-wall > li { width: auto; }
+
+.g-thumbslide .g-description { margin: 0 0 0 0; left: 0; top: 0; min-height: 2.4em; }
+.g-thumbslide .g-metadata    { margin: 0 0 0 0; left: 0; bottom: 0; min-height: 2.4em; }
+
+.g-default .g-thumbslide .g-description, .g-expanded .g-thumbslide .g-description { border-color: #ADAEAD; border-top: none; }
+.g-thumbcrop { border: none; }
